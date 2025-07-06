@@ -1,0 +1,17 @@
+# Virtual environments
+.env/
+venv/
+ENV/
+env/
+__pycache__/
+
+# VSCode or IDE files
+.vscode/
+.idea/
+
+# macOS & Windows
+.DS_Store
+Thumbs.db
+
+# Python bytecode
+*.pyc
