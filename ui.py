@@ -1,6 +1,6 @@
 # screen_width and height, then calculate x and y to center
 import customtkinter as ctk
-
+from pyttsx3 import speak
 class TTSpopup(ctk.CTk):
     
     def __init__(self):
@@ -23,7 +23,7 @@ class TTSpopup(ctk.CTk):
         self.attributes("-transparentcolor", "black")
         
         # Create a custom entry widget
-        self.entry = ctk.CTkEntry(self, placeholder_text="Input your message...",width=700,height=80)
+        self.entry = ctk.CTkEntry(self, placeholder_text="Type your message and press Enter...",width=700,height=80)
         self.entry.pack(padx= 10, pady = 10)
         self.after(100, self._force_focus)
         
@@ -38,9 +38,8 @@ class TTSpopup(ctk.CTk):
      
     def on_enter(self,event):
         string = self.entry.get()
-        print(string)
+        speak(string)
         self.destroy()
-        return string
-def open() :  
+def open_popup() :  
     app = TTSpopup()       
     app.mainloop()
