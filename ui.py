@@ -1,6 +1,8 @@
 # screen_width and height, then calculate x and y to center
 import customtkinter as ctk
-from pyttsx3 import speak
+from tts_engine import speak
+from tts_engine import speak, set_tts_mode
+
 class TTSpopup(ctk.CTk):
     
     def __init__(self):

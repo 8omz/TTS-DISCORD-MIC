@@ -4,6 +4,8 @@ from ui import open_popup
 import threading
 import os
 from PIL import Image, ImageDraw
+from tts_engine import speak, set_tts_mode
+
 
 def trayapp():
     iconimg = Image.new(mode="RGB",size=(64,64),)
@@ -33,8 +35,10 @@ def trayapp():
         return items
     icon = Icon('TTSMIC', iconimg, menu=Menu(
         MenuItem('Open', open_popup),
-        MenuItem('Voices', Menu(*create_items())),
-        MenuItem('Close', on_exit)
+        #MenuItem('Voices', Menu(*create_items())),
+        MenuItem('Close', on_exit),
+        MenuItem("Use Coqui", lambda icon, item: set_tts_mode("coqui")),
+        MenuItem("Use Default", lambda icon, item: set_tts_mode("pyttsx3"))
     ))
 
 
